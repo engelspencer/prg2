@@ -1,30 +1,33 @@
 using System;
+using System.Collections.Generic;
 
 namespace prg2._2_oop
 {
     public class hw2
     {
-        public static void LeapYear()
+        public static void LeapYears()
         {
-            Console.Write("Please enter a year: ");
+            Console.Write("Please enter a year to start from: ");
             int year = Convert.ToInt32(Console.ReadLine());
-            bool isLeapYear;
+            List<int> leapYears = new List<int>();
+            int[] leapYearsArray;
 
-            if((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0))
+            while(leapYears.Count < 20)
             {
-                isLeapYear = true;
+                if((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0))
+                {
+                    leapYears.Add(year);
+                }
+
+                year++;
             }
-            else
+
+            leapYearsArray = leapYears.ToArray();
+
+            foreach(int k in leapYearsArray)
             {
-                isLeapYear = false;
+                Console.WriteLine(k);
             }
-
-            Console.WriteLine(isLeapYear);
-        }
-
-        public void run()
-        {
-            LeapYear();
         }
     }
 }

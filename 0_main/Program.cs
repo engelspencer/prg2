@@ -15,7 +15,7 @@ namespace _0_main
             Console.WriteLine("Launching main.");
 
             prg2._2_oop.hw2 hw = new prg2._2_oop.hw2();
-            hw.run();
+            hw2.LeapYears();
             
 
             Intro i = new Intro(args);
