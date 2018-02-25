@@ -1,72 +1,33 @@
+using System.Collections.Generic;
 using System;
 
 namespace prg2._2_oop
 {
-    public class CoffeeMaker
+    public class CoffeeMaker : ConsumableMaker
     {
-        //this is a method, it is a constructor
-
-        double water_amount;
-        double coffee_amount;
-        bool on_off;
-        bool filter_in;
-        //hot plate
-        bool grounds_wet;
-
-        double grounds_amount;
-        double MAX_GROUNDS_AMOUNT;
-        double MAX_COFFEE_AMOUNT;
-        double MAX_WATER_AMOUNT;
-
         public CoffeeMaker()
         {
-            water_amount = 0;
-            MAX_WATER_AMOUNT = 12;
-            coffee_amount = 0;
-            MAX_COFFEE_AMOUNT = 12;
-            grounds_amount = 0;
-            MAX_GROUNDS_AMOUNT = 6;
-            on_off = false;
-            filter_in = false;
-            grounds_wet = false;
+            Ingredients = new Dictionary<System.Type, Consumable>();
+            MaxIngredients = new Dictionary<System.Type, double>();
+            Ingredients [typeof(Water)] = new Water();
+            Ingredients [typeof(Coffee)] = new Coffee();
+            Ingredients [typeof(Grain)] = new Grain();
         }
-        public void AddGrains(double scoops_of_grounds)
+        public void AddWater(double AmountOfWater)
         {
-            grounds_amount += scoops_of_grounds;
-            if(grounds_amount > MAX_GROUNDS_AMOUNT)
-            {
-                //Console.WriteLine("Put some of that back, that's too much!");
-                //grounds_amount = MAX_GROUNDS_AMOUNT;
-                throw new Exception("Put some of that back, that's too much!");
-            }
+            Ingredients [typeof(Water)].quantity += AmountOfWater;
+        }
+        public void AddGrains(double AmountOfGrains)
+        {
+            Ingredients [typeof(Grain)].quantity += AmountOfGrains;
         }
         public void InsertFilter()
         {
-            filter_in = true;
+            Ingredients [typeof(PaperFilter)].quantity += 1.0;
         }
-        public void AddWater(double cups_of_water)
+        public override Consumable Make()
         {
-            water_amount += cups_of_water;
-            if(water_amount > MAX_WATER_AMOUNT)
-            {
-                Console.WriteLine("Put some of that back, that's too much!");
-                water_amount = MAX_WATER_AMOUNT;
-            }
-        }
-        public void TurnOn()
-        {
-            on_off = true;
-            MakeCoffee();
-        }
-        public void MakeCoffee()
-        {
-            coffee_amount = water_amount;
-            water_amount = 0;
-            grounds_wet = true;
-        }
-        public void TurnOff()
-        {
-            on_off = false;
+            throw new NotImplementedException();
         }
     }
 }

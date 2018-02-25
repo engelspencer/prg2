@@ -13,9 +13,6 @@ namespace _0_main
         static void Main(string[] args)
         {
             Console.WriteLine("Launching main.");
-
-            prg2._2_oop.hw2 hw = new prg2._2_oop.hw2();
-            hw2.LeapYears();
             
 
             Intro i = new Intro(args);
@@ -40,5 +37,9 @@ namespace _0_main
             Database_Design dd = new Database_Design(args);
         }
 
+        static void CoffeeTest()
+        {
+            CoffeeMaker lifesaver = new CoffeeMaker();
+        }
     }
 }
