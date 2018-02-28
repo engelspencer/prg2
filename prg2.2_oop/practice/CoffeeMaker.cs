@@ -15,6 +15,7 @@ namespace prg2._2_oop
         }
         public void AddWater(double AmountOfWater)
         {
+           //wow
             Ingredients [typeof(Water)].quantity += AmountOfWater;
         }
         public void AddGrains(double AmountOfGrains)

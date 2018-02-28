@@ -12,22 +12,10 @@ namespace _0_main
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Launching main.");
-            
-
-            Intro i = new Intro(args);
-            //test(args);
-          
+            NodeTest();
             Console.ReadKey();
-            /*
-            To add a project, first add a new folder naming it the [projectname]
-            then type 
-            dotnet new classlib -o [projectname]
-            then cd to 0_main and type
-            dotnet add reference ../[projectname]/[projectname].csproj
-            */
-        
         }
+
         static void test(string [] args)
         {
             Intro i = new Intro(args);
@@ -35,6 +23,21 @@ namespace _0_main
             Design_Patterns d = new Design_Patterns(args);
             Functional_Programming f = new Functional_Programming(args);
             Database_Design dd = new Database_Design(args);
+        }
+
+        static void NodeTest()
+        {
+            Console.WriteLine("I'm testing Node.");
+            string done = "";
+            Node linkedList = new Node(0);
+            while(done != "y")
+            {
+                Console.WriteLine("Insert an integer for Linked List");
+                int value = Convert.ToInt32(Console.ReadLine());
+                linkedList.next = new Node(value);
+                Console.WriteLine("Are you done adding y/n");
+                done = Console.ReadLine().ToLower();
+            }
         }
 
         static void CoffeeTest()
